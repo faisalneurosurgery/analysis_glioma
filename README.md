@@ -7,13 +7,15 @@ The tracking of the cells has been done using [ImageJ][1] with the plugin [Track
 
 ## Step 2: smoothing trajectories
 
-We then smooth the trajectories obtained with *TrackMate*. Smoothing is necessarily to make an estimate of  the velocity of each cell at any time. Without smoothing, the trajectories are too noisy. We use a Gaussian kernel as a filter with standard deviation $σ=2$ and a stencil of $9$ points implemented in Julia:
+We then smooth the trajectories obtained with *TrackMate*. Smoothing is necessarily to make an estimate of  the velocity of each cell at any time. Without smoothing, the trajectories are too noisy. We use a Gaussian kernel as a filter with standard deviation $σ=2$ and a stencil of $9$ points. The implementation has been done in [Julia](https://julialang.org/), the script is in the folder `src`:
 ```julia
 	> include("step2_filter_data.jl")
 ```
 The velocity of the cells  ${\bf v}_i(t)$ at a given time $t$ is estimated using the classical formula:
 
+```math
 $${\bf v}_i(t) = \frac{{\bf x}_i(t+Δt)-{\bf x}_i(t-Δt)}{2Δt}$$
+```
 
 Thus, we have now an estimation of the positions ${\bf x}_i(t)$ and  velocities ${\bf v}_i(t)$ of the cells $i$. From the velocity ${\bf v}_i(t)$, we also deduce the velocity direction $θ_i(t)$. All the trajectories are saved in `jld2` file in the folder `data_tracking/step2_data_filtered`.
 
