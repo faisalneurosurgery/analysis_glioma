@@ -34,10 +34,20 @@ The results of the analysis can be visualized using the two scripts:
 ```
 ## Step 4: classification flock/stream/swarm
 
-To classify a zone as a flock, a stream or a swarm, we take the collection of angle $\theta_i$ inside a specific zone and compare the distribution to three distributions. The three distributions are a (wrapped) Gaussian for a flock, a symmetrize Gaussian for a stream and the constant function for a swarm. We use maximum likelihood and Akaike weight to select which distribution matches the best the distribution of $\theta_i$. From a practical point of view, it suffices to run the following R script:
+To classify a zone as a flock, a stream or a swarm, we take the collection of angle $\theta_i$ inside a specific zone and compare the distribution to three distributions. The three distributions are a (wrapped) Gaussian for a flock, a symmetrize Gaussian for a stream and the constant function for a swarm. We use maximum likelihood and Akaike weight to select which distribution matches the best the distribution of $\theta_i$. From a practical point of view, it suffices to run the following [R](https://www.r-project.org/) script:
 ```R
 	> source("step4_zone_testing_distribution.r")
 ```
+
+## Additional remarks
+
+The Julia scripts have been tested using Julia version 1.6.2 (stable) with the following packages:
+- computing: `Revise`, `ProgressMeter`, `CSV`, `JSON`, `DataFrames`, `FileIO`
+- visualization: `PyPlot`, `LaTeXStrings`
+- math: `LinearAlgebra`, `Statistics`, `DSP`
+
+The R script requires the library `circular`.
+
 
 ## References
 
