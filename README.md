@@ -1,6 +1,9 @@
 Analysis glioma
 ===============
 
+This code reposotory explains the statistical analysis performed in the paper [*Spatiotemporal analysis of glioma heterogeneity reveals Col1A1 as an actionable 1 target to disrupt tumor mesenchymal differentiation, invasion and malignancy*](https://www.biorxiv.org/content/10.1101/2020.12.01.404970v2). It includes an example of experimental data to test the various programs. Running any script should take less than a minute except for one script in step 3 `step3_zone_create_df.jl` (this script is not necessary to run the other scripts).
+
+
 ## Step 1: tracking
 
 The tracking of the cells has been done using [ImageJ][1] with the plugin [TrackMate][2]. We use the DoG detection (Difference of Gaussian) with a radius of 20μm and a threshold of 1. As a result, we obtain two CSV files (see an example and an illustration in the folder `data_tracking/step1_data_trackMate/NPA_stich_3`) containing the positions $(x,y)$ of the cells (see the file `*spots.csv`) along with the trajectories (`*tracks.csv`).
