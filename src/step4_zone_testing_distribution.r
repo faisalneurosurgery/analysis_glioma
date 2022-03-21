@@ -5,7 +5,7 @@ nameExp = "NPA_stich_3"
 str_zone = "zoneA"
 
 ## parameters
-σ2_flock = 2
+σ2_flock = 1.5
 σ2_stream = 1
 
 ## loading
