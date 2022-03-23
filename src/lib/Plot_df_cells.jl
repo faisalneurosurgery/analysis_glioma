@@ -61,7 +61,7 @@ function plot_distri_speed_zones(dict_df_zone,dSpeed,maxSpeed,str_title,str_fold
     figure(3);clf()
     for k in 1:length(dict_df_zone)
         df_zone = dict_df_zone[name_zones[k]]
-        println("-- stat "*name_zones[k]*" --")
+        println("-- stat speed "*name_zones[k]*" --")
         println("  mean = ",mean(df_zone[:,:speed]))
         println("  std  = ", std(df_zone[:,:speed]))
         intS,ρ = PIC_method.PIC_1D(0,maxSpeed,dSpeed,df_zone[:,:speed],true)
@@ -98,7 +98,7 @@ function plot_distri_angle(df,Δθ,zMax,array_yticks,str_title,str_name)
     ave_nem_velocity = [mean(cos.(-2*df[:,:θ]));mean(sin.(-2*df[:,:θ]));]
     polarization = norm(ave_velocity)
     nematic_polarization = norm(ave_nem_velocity)
-    println("-- stat --")
+    println("-- stat angle --")
     println("  polarization = ",polarization)
     println("  nem. polari. = ",nematic_polarization)
     # plot
@@ -167,7 +167,7 @@ end
 """ Plot the distribution of speed """
 function plot_distri_speed(df,dSpeed,maxSpeed,str_title,str_name,df_after=nothing)
     # stat
-    println("-- stat --")
+    println("-- stat speed --")
     println("  mean = ",mean(df[:,:speed]))
     println("  std  = ",std(df[:,:speed]))
     intS,ρ = PIC_method.PIC_1D(0,maxSpeed,dSpeed,df[:,:speed],true)
@@ -224,8 +224,8 @@ function plot_corr2D(df,L,dx,str_title,str_folder)
     title("Correlation, "*replace(str_title,"_"=>" "))
     xlabel("left -------- right")
     ylabel("back -------- front")
-    plot(20*cos.(s),20*sin.(s),linestyle="dashed",linewidth=3,color="yellow",alpha=.8)
-    quiver(0,0,0,40, scale_units="xy",scale=1,color="yellow",alpha=.8,linewidth=3)
+    plot(10*cos.(s),10*sin.(s),linestyle="dashed",linewidth=3,color="yellow",alpha=.8)
+    quiver(0,0,0,20, scale_units="xy",scale=1,color="yellow",alpha=.8,linewidth=3)
     axis("square")
     savefig(str_folder*"_correlation_uv.pdf",bbox_inches="tight")
     # nematic correlation
@@ -241,8 +241,8 @@ function plot_corr2D(df,L,dx,str_title,str_folder)
     title("Nematic Correlation, "*replace(str_title,"_"=>" "))
     xlabel("left -------- right")
     ylabel("back -------- front")
-    plot(20*cos.(s),20*sin.(s),linestyle="dashed",linewidth=3,color="yellow",alpha=.8)
-    quiver(0,0,0,40, scale_units="xy",scale=1,color="yellow",alpha=.8,linewidth=3)
+    plot(10*cos.(s),10*sin.(s),linestyle="dashed",linewidth=3,color="yellow",alpha=.8)
+    quiver(0,0,0,20, scale_units="xy",scale=1,color="yellow",alpha=.8,linewidth=3)
     axis("square")
     savefig(str_folder*"_nematic_correlation_uv.pdf",bbox_inches="tight")
 end
