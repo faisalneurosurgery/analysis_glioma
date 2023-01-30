@@ -62,6 +62,6 @@ The R script requires the library `circular`.
 
 ## Legal notice information
 
-The programs are distributed under the GNU GPL license version 2. More information are available in the file COPYING.txt. For any information or bugs, please contact me at: `smotsch[at]asu.edu`.
+The programs are distributed under the GNU GPL license version 2. More information are available in the file COPYING.txt. For any information or bugs, please contact me at: `mosyed[at]umich.edu`.
 
 
