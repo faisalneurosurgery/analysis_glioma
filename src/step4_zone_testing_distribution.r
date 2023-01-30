@@ -5,8 +5,8 @@ nameExp = "NPA_stich_3"
 str_zone = "zoneA"
 
 ## parameters
-σ2_flock = 2
-σ2_stream = 1
+σ2_flock = 1.5
+σ2_stream = 1.0
 
 ## loading
 folderDataZone = "../data_tracking/step3_data_zone/"
@@ -32,7 +32,6 @@ parameter_Wrapped_Gauss <- function(θ,fixedSigma2=-1){
         σ2 = fixedSigma2
     }
     ## log-likelihood
-    #li = dwrappedg(θ,"norm",mean=θ_bar,sd=sqrt(σ2),K=100)
     li = dwrappednormal(θ, mu=circular(θ_bar), sd=sqrt(σ2))
     lli = sum(log(li))
     ## return
